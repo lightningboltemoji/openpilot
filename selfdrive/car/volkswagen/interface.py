@@ -57,7 +57,7 @@ class CarInterface(CarInterfaceBase):
     ret.lateralTuning.torque.kp = 2.0 / MAX_TORQUE
     ret.lateralTuning.torque.kf = 1.0 / MAX_TORQUE
     ret.lateralTuning.torque.ki = 0.5 / MAX_TORQUE
-    ret.lateralTuning.torque.friction = 0.1
+    ret.lateralTuning.torque.friction = 0.01
 
     # Per-chassis tuning values, override tuning defaults here if desired
 
