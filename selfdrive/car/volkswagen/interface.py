@@ -50,11 +50,14 @@ class CarInterface(CarInterfaceBase):
     ret.steerLimitTimer = 0.4
     ret.steerRatio = 15.6  # Let the params learner figure this out
     tire_stiffness_factor = 1.0  # Let the params learner figure this out
-    ret.lateralTuning.pid.kpBP = [0.]
-    ret.lateralTuning.pid.kiBP = [0.]
-    ret.lateralTuning.pid.kf = 0.00006
-    ret.lateralTuning.pid.kpV = [0.6]
-    ret.lateralTuning.pid.kiV = [0.2]
+
+    MAX_TORQUE = 2.0
+    ret.lateralTuning.init('torque')
+    ret.lateralTuning.torque.useSteeringAngle = True
+    ret.lateralTuning.torque.kp = 2.0 / MAX_TORQUE
+    ret.lateralTuning.torque.kf = 1.0 / MAX_TORQUE
+    ret.lateralTuning.torque.ki = 0.5 / MAX_TORQUE
+    ret.lateralTuning.torque.friction = 0.1
 
     # Per-chassis tuning values, override tuning defaults here if desired
 
