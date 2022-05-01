@@ -54,7 +54,7 @@ class CarController():
             stopping_distance = 3.5
           else:
             acc_hold_type = 3  # hold_standby
-            stopping_distance = 0.5
+            stopping_distance = 1.0
         elif c.longActive:
           if self.acc_stopping:
             self.acc_starting = True
