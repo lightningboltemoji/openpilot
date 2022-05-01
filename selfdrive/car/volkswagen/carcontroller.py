@@ -46,7 +46,7 @@ class CarController():
 
         # FIXME: this needs to become a proper state machine
         acc_hold_request, acc_hold_release, acc_hold_type, stopping_distance = False, False, 0, 20.46
-        if actuators.longControlState == LongCtrlState.stopping and CS.out.vEgo < 0.2:
+        if actuators.longControlState == LongCtrlState.stopping and CS.out.vEgo < 0.4:
           self.acc_stopping = True
           acc_hold_request = True
           if CS.esp_hold_confirmation:
